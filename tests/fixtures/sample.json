@@ -1,0 +1,27 @@
+{
+  "title": "Sample JSON Document",
+  "category": "research",
+  "tags": ["testing", "json", "fixtures"],
+  "content": {
+    "abstract": "This is a sample JSON document for testing the RKM CLI with JSON file ingestion.",
+    "sections": [
+      {
+        "heading": "Introduction",
+        "text": "JSON documents can be ingested into the knowledge graph for structured data processing."
+      },
+      {
+        "heading": "Methodology",
+        "text": "The system parses JSON files and extracts text content for embedding and graph construction."
+      },
+      {
+        "heading": "Results",
+        "text": "Successfully processed JSON documents maintain their structure in the knowledge graph."
+      }
+    ],
+    "metadata": {
+      "author": "Test Author",
+      "date": "2025-01-01",
+      "version": "1.0"
+    }
+  }
+}

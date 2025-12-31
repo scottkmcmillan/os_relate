@@ -1,0 +1,50 @@
+{
+  "name": "research-knowledge-manager",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "rkm": "./dist/cli.js"
+  },
+  "scripts": {
+    "dev": "tsx src/cli.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli.js",
+    "mcp": "node dist/mcp/server.js",
+    "api": "node dist/api/server.js",
+    "api:dev": "tsx src/api/server.ts",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "verify": "npm run build && npx tsx scripts/verify-system.ts",
+    "verify:quick": "bash scripts/verify-system.sh"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@ruvector/attention": "^0.1.1",
+    "@ruvector/gnn": "^0.1.19",
+    "better-sqlite3": "^12.5.0",
+    "claude-flow": "^2.7.47",
+    "commander": "^13.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "multer": "^2.0.2",
+    "ruvector": "latest",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@ruvector/graph-node": "^0.1.25",
+    "@ruvector/tiny-dancer": "^0.1.15",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.0.0",
+    "@types/supertest": "^6.0.3",
+    "@vitest/ui": "^4.0.16",
+    "supertest": "^7.1.4",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.16"
+  }
+}

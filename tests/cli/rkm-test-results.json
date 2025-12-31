@@ -1,0 +1,180 @@
+{
+  "timestamp": "2025-12-23T05:45:54.878Z",
+  "summary": {
+    "total": 12,
+    "passed": 0,
+    "failed": 12,
+    "duration": 408807,
+    "passRate": 0
+  },
+  "results": [
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--version"
+      ],
+      "passed": false,
+      "stdout": "0.3.0",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 34937,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--help"
+      ],
+      "passed": false,
+      "stdout": "Usage: rkm [options] [command]\n\nResearch Knowledge Manager - Cognitive Knowledge Graph CLI\n\nOptions:\n  -V, --version             output the version number\n  --db <path>               Path to RuVector storage file (default:\n                            \"./ruvector.db\")\n  --data-dir <path>         Path to graph data directory (default: \"./data\")\n  --dims <number>           Embedding dimensions (default: \"384\")\n  --no-cognitive            Disable cognitive features (SONA/GNN)\n  -h, --help                display help for command\n\nCommands:\n  ingest [options]          Ingest a file or directory of research outputs into\n                            Cognitive Knowledge Graph\n  query [options] <text>    Semantic query over stored research with optional\n                            graph exploration\n  search [options] <text>   Hybrid search combining vector similarity and graph\n                            relationships\n  graph [options] <cypher>  Query the knowledge graph using Cypher-like syntax\n  route [options] <query>   Analyze query intent and suggest execution strategy\n  context [options] <text>  Print a Claude-Flow-ready context block from\n                            RuVector search results (copy/paste into prompts)\n  status [options]          Show system capabilities, memory statistics, and\n                            learning progress\n  learn [options]           Trigger SONA learning from recorded trajectories\n  help [command]            display help for command",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 34786,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "status"
+      ],
+      "passed": false,
+      "stdout": "=== RuVector Capabilities ===\n\nImplementation: native\n  Native: Yes\n  WASM: No\n  Version: 0.1.35\n\nModules:\n  GNN (Graph Neural Network): Available\n  Attention: Not Available\n  SONA (Self-Optimizing): Available",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 39562,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--version"
+      ],
+      "passed": false,
+      "stdout": "0.3.0",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 41542,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--help"
+      ],
+      "passed": false,
+      "stdout": "Usage: rkm [options] [command]\n\nResearch Knowledge Manager - Cognitive Knowledge Graph CLI\n\nOptions:\n  -V, --version             output the version number\n  --db <path>               Path to RuVector storage file (default:\n                            \"./ruvector.db\")\n  --data-dir <path>         Path to graph data directory (default: \"./data\")\n  --dims <number>           Embedding dimensions (default: \"384\")\n  --no-cognitive            Disable cognitive features (SONA/GNN)\n  -h, --help                display help for command\n\nCommands:\n  ingest [options]          Ingest a file or directory of research outputs into\n                            Cognitive Knowledge Graph\n  query [options] <text>    Semantic query over stored research with optional\n                            graph exploration\n  search [options] <text>   Hybrid search combining vector similarity and graph\n                            relationships\n  graph [options] <cypher>  Query the knowledge graph using Cypher-like syntax\n  route [options] <query>   Analyze query intent and suggest execution strategy\n  context [options] <text>  Print a Claude-Flow-ready context block from\n                            RuVector search results (copy/paste into prompts)\n  status [options]          Show system capabilities, memory statistics, and\n                            learning progress\n  learn [options]           Trigger SONA learning from recorded trajectories\n  help [command]            display help for command",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 30521,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "status"
+      ],
+      "passed": false,
+      "stdout": "=== RuVector Capabilities ===\n\nImplementation: native\n  Native: Yes\n  WASM: No\n  Version: 0.1.35\n\nModules:\n  GNN (Graph Neural Network): Available\n  Attention: Not Available\n  SONA (Self-Optimizing): Available",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 39780,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "invalid-command-xyz"
+      ],
+      "passed": false,
+      "stdout": "",
+      "stderr": "error: unknown command 'invalid-command-xyz'",
+      "exitCode": -1,
+      "duration": 31534,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--version"
+      ],
+      "passed": false,
+      "stdout": "0.3.0",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 31209,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--version"
+      ],
+      "passed": false,
+      "stdout": "0.3.0",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 32535,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--version"
+      ],
+      "passed": false,
+      "stdout": "0.3.0",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 29277,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--version"
+      ],
+      "passed": false,
+      "stdout": "0.3.0",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 25502,
+      "error": "Command timed out after 15000ms"
+    },
+    {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/workspaces/ranger/src/cli.ts",
+        "--version"
+      ],
+      "passed": false,
+      "stdout": "0.3.0",
+      "stderr": "",
+      "exitCode": -1,
+      "duration": 37622,
+      "error": "Command timed out after 15000ms"
+    }
+  ]
+}

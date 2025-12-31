@@ -1,0 +1,15 @@
+Sample Plain Text Document
+
+This is a simple plain text document for testing the RKM CLI.
+
+The system should be able to ingest this file and create embeddings from its content.
+
+Key topics covered:
+- Text processing
+- Document ingestion
+- Vector embeddings
+
+This file serves as a test fixture for verifying that plain text files
+can be properly handled by the ingestion pipeline.
+
+End of document.
