@@ -1,0 +1,159 @@
+{
+  "analysis_date": "2025-12-30",
+  "overall_quality_score": 7.5,
+  "total_issues": 12,
+  "technical_debt_hours": "32-40",
+  "critical_issues": [
+    {
+      "id": "ISSUE-001",
+      "severity": "HIGH",
+      "category": "Maintainability",
+      "title": "Excessive File Sizes",
+      "description": "12 files exceed 500-line threshold, with collections.ts at 1,090 lines",
+      "files_affected": [
+        "src/memory/collections.ts (1,090 lines)",
+        "src/memory/types.ts (942 lines)",
+        "src/mcp/server.ts (872 lines)",
+        "src/memory/index.ts (748 lines)",
+        "src/cli.ts (740 lines)",
+        "src/memory/cognitive.ts (720 lines)",
+        "src/memory/vectorStore.ts (646 lines)",
+        "src/memory/graphStore.ts (575 lines)",
+        "src/pka/memory.ts (573 lines)",
+        "src/tools/router.ts (570 lines)",
+        "src/ingestion/graphBuilder.ts (546 lines)",
+        "src/api/middleware/rbac.ts (518 lines)"
+      ],
+      "impact": "Reduced maintainability, increased cognitive load, harder to test and refactor",
+      "recommendation": "Refactor files over 500 lines into smaller focused modules. Start with collections.ts and types.ts",
+      "effort_hours": "16-20",
+      "priority": "HIGH"
+    },
+    {
+      "id": "ISSUE-002",
+      "severity": "HIGH",
+      "category": "Testing",
+      "title": "Missing Test Coverage Tooling",
+      "description": "Cannot run test coverage due to missing @vitest/coverage-v8 dependency",
+      "files_affected": ["vitest.config.ts", "package.json"],
+      "impact": "Cannot measure code coverage, unable to identify untested code paths, risk of deploying untested code",
+      "recommendation": "npm install --save-dev @vitest/coverage-v8",
+      "effort_hours": "1",
+      "priority": "HIGH"
+    },
+    {
+      "id": "ISSUE-003",
+      "severity": "MEDIUM",
+      "category": "Code Quality",
+      "title": "Console.log Debugging Statements",
+      "description": "42 console.log statements across 9 files, including 15 in documents.ts route",
+      "files_affected": [
+        "src/tools/router.ts (7 occurrences)",
+        "src/api/server.ts (7 occurrences)",
+        "src/api/routes/documents.ts (15 occurrences)",
+        "src/ingestion/graphBuilder.ts (3 occurrences)",
+        "src/ingestion/parser.ts (4 occurrences)",
+        "src/pka/memory.ts (2 occurrences)",
+        "src/api/middleware/auth.ts (2 occurrences)"
+      ],
+      "impact": "Production logs may contain sensitive information, poor logging hygiene, difficult to filter/analyze logs",
+      "recommendation": "Replace with structured logging library (pino/winston), implement log levels, remove debug statements",
+      "effort_hours": "4-6",
+      "priority": "HIGH"
+    },
+    {
+      "id": "ISSUE-004",
+      "severity": "MEDIUM",
+      "category": "Technical Debt",
+      "title": "TODO/FIXME Incomplete Implementations",
+      "description": "7 TODO items indicating incomplete feature implementations in production routes",
+      "files_affected": [
+        "src/api/routes/alignment.ts (1 TODO)",
+        "src/api/routes/teams.ts (3 TODOs)",
+        "src/api/routes/reports.ts (2 TODOs)"
+      ],
+      "todos": [
+        "Integrate actual vector distance calculation (alignment.ts:127)",
+        "Implement actual team retrieval from storage (teams.ts:30)",
+        "Retrieve actual team from storage (teams.ts:74)",
+        "Calculate actual alignment using PKAMemoryManager (teams.ts:101)",
+        "Retrieve actual project entities from PKAMemoryManager (teams.ts:138)",
+        "Calculate actual progress metrics from PKAMemoryManager (reports.ts:80)",
+        "Implement semantic similarity detection across entities (reports.ts:185)"
+      ],
+      "impact": "Incomplete features, mock/placeholder data in production routes, potential incorrect behavior",
+      "recommendation": "Create GitHub issues, prioritize implementations, add tests to verify completeness",
+      "effort_hours": "8-12",
+      "priority": "HIGH"
+    },
+    {
+      "id": "ISSUE-005",
+      "severity": "MEDIUM",
+      "category": "Security",
+      "title": "JWT Secret Configuration Fallback",
+      "description": "Development fallback secret used when environment variables are missing",
+      "files_affected": ["src/api/middleware/auth.ts"],
+      "code_location": "auth.ts:78-84",
+      "impact": "Application runs with insecure authentication if env vars missing, silent failure mode, potential production vulnerability",
+      "recommendation": "Throw error instead of using fallback in production, add environment validation on startup, implement secrets management",
+      "effort_hours": "2-3",
+      "priority": "MEDIUM"
+    }
+  ],
+  "improvement_opportunities": [
+    {
+      "category": "Refactoring",
+      "title": "Extract Collection Statistics",
+      "priority": "HIGH",
+      "effort_hours": "4-6",
+      "benefit": "Reduce collections.ts from 1,090 to ~500 lines, improve testability"
+    },
+    {
+      "category": "Refactoring",
+      "title": "Modularize MCP Server Tools",
+      "priority": "MEDIUM",
+      "effort_hours": "4-6",
+      "benefit": "Easier to add/modify tools, better organization"
+    },
+    {
+      "category": "Architecture",
+      "title": "Create Service Layer",
+      "priority": "MEDIUM",
+      "effort_hours": "4-6",
+      "benefit": "Decouple routes from data access, improve testability"
+    },
+    {
+      "category": "Logging",
+      "title": "Implement Structured Logging",
+      "priority": "HIGH",
+      "effort_hours": "4-6",
+      "benefit": "Production-ready logging, better debugging, log aggregation support"
+    }
+  ],
+  "positive_findings": [
+    "Excellent type safety with TypeScript strict mode",
+    "No security vulnerabilities in production dependencies",
+    "Well-structured project organization",
+    "Comprehensive test infrastructure (23 test files)",
+    "Modern tooling (Vitest, ES2022, TypeScript)",
+    "RBAC and authentication middleware implemented",
+    "Good documentation (README, API docs, developer guides)"
+  ],
+  "metrics": {
+    "source_files": 45,
+    "test_files": 23,
+    "total_lines": 14859,
+    "large_files_count": 12,
+    "console_log_count": 42,
+    "todo_count": 7,
+    "class_count": 7,
+    "typescript_coverage": "100%"
+  },
+  "next_actions": [
+    "Install @vitest/coverage-v8 and measure baseline coverage",
+    "Fix JWT secret validation to throw error in production",
+    "Create GitHub issues for all TODO items",
+    "Begin refactoring collections.ts (highest priority)",
+    "Implement structured logging across codebase"
+  ]
+}

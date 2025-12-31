@@ -1,1 +1,0 @@
-Plain text document about vector databases and embeddings. Vector databases store high-dimensional vectors for similarity search.
